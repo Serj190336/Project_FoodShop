@@ -1,7 +1,8 @@
-import { elements } from './base';
+import {
+    elements
+} from './base';
 
 export const getInput = () => elements.searchInput.value;
-console.log(getInput())
 export const clearInput = () => {
     elements.searchInput.value = '';
 };
@@ -33,7 +34,7 @@ export const limitRecipeTitle = (title, limit = 16) => {
 const renderRecipe = recipe => {
     const markup = `
         <li>
-            <a class="results__link" href="#${recipe.recipe_id}">
+            <a class="results__link" href="#${recipe.recipe_id}" data-recipeid="${recipe.recipe_id}">
                 <figure class="results__fig">
                     <img src="${recipe.image_url}" alt="${recipe.title}">
                 </figure>
@@ -86,6 +87,17 @@ export const renderResults = (recipes, page = 1, resPerPage = 10) => {
     const end = page * resPerPage;
 
     recipes.slice(start, end).forEach(renderRecipe);
+
+    // EventListener
+    const resultsLink = document.querySelectorAll('.results__link');
+    let links;
+    for (var i = 0; i < resultsLink.length; i++) {
+        links = resultsLink[i];
+        links.addEventListener('click', function (e) {
+            //console.log(e.currentTarget.dataset.recipeid);
+
+        });
+    }
 
     // render pagination buttons
     renderButtons(page, recipes.length, resPerPage);
