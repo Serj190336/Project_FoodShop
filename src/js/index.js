@@ -1,7 +1,7 @@
 import Search from './models/search' //import class Search
 import * as searchView from './views/searchView'
 import { elements, renderLoader, clearLoader } from './views/base'
-import { displayModal } from './models/modal'
+import * as modal from './models/modal'
 
 /** Global state of the app
  * - Current recipe object
@@ -29,10 +29,13 @@ const controlSearch = async () => { // new async function for Search input
         clearLoader(); //removing loader spinner
         searchView.renderResults(state.search.result); // display search results on page using forEach
 
-        //modal
-        console.log(displayModal());
+        //modal event
+        modal.displayModal();
+
         
+
         
+
     }
 }
 elements.searchForm.addEventListener('submit', e => {

@@ -88,17 +88,6 @@ export const renderResults = (recipes, page = 1, resPerPage = 10) => {
 
     recipes.slice(start, end).forEach(renderRecipe);
 
-    // EventListener
-    const resultsLink = document.querySelectorAll('.results__link');
-    let links;
-    for (var i = 0; i < resultsLink.length; i++) {
-        links = resultsLink[i];
-        links.addEventListener('click', function (e) {
-            //console.log(e.currentTarget.dataset.recipeid);
-
-        });
-    }
-
     // render pagination buttons
     renderButtons(page, recipes.length, resPerPage);
 };
