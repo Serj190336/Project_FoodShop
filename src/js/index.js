@@ -30,7 +30,7 @@ const controlSearch = async () => { // new async function for Search input
         searchView.renderResults(state.search.result); // display search results on page using forEach
 
         //modal event
-        modal.displayModal();
+        modal.createModal();
 
 
     }
