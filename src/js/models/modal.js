@@ -15,12 +15,8 @@ export const displayModal = () => {
 
 
   // Get the <span> element that closes the modal
-  var span = document.getElementsByClassName("close")[0];
+  var span = document.querySelector('.close');
 
-  // When the user clicks the button, open the modal 
-  // resultsLink2.onclick = function() {
-  //   modal.style.display = "block";
-  // }
 
   // When the user clicks on <span> (x), close the modal
   span.onclick = function () {
