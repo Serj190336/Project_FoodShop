@@ -32,9 +32,6 @@ const controlSearch = async () => { // new async function for Search input
         //modal event
         modal.displayModal();
 
-        
-
-        
 
     }
 }
