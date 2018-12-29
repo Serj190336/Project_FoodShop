@@ -29,7 +29,7 @@ const controlSearch = async () => { // new async function for Search input
         clearLoader(); //removing loader spinner
         searchView.renderResults(state.search.result); // display search results on page using forEach
 
-        //modal event
+        // Prepare modal on click
         modal.createModal();
 
 
