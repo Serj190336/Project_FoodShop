@@ -3,7 +3,7 @@ import { elements } from '../views/base'
 
 
 
-let modalState = {};
+
 
 // Prepare modal
 export const createModal = () => {
@@ -35,11 +35,14 @@ export const createModal = () => {
 
 
       //
-      // id of clicked recipe
-      let datasetRecipeId = e.currentTarget.dataset.recipeid;
+      // Modal class and ID of clicked recipe
+      let modalState = {},
+      datasetRecipeId = e.currentTarget.dataset.recipeid;
       modalState = new Modal(datasetRecipeId);
       // async send ID to api and get recipe info object
       modalState.recipeDetails();
+      elements.modalContent.innerHTML = `<span class="closemodal">&times;</span>
+      <p>Some text in the Modal..</p>`;
 
     })
   })

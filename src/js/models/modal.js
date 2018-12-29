@@ -10,20 +10,20 @@ import { elements } from '../views/base'
     }
 
     async recipeDetails() {
-
-      let response;
       try {
-        response = await axios(`http://food2fork.com/api/get?key=${key}&rId=${this.id}`);
+        const recipeResponse = await axios(`http://food2fork.com/api/get?key=${key}&rId=${this.id}`);
         //console.log(response.data.recipe.image_url);
+        //this.image = recipeResponse.data.recipe.image_url;
       } catch (error) {
         console.log(error);
         alert('Something went wrong')
       }
-      if (response.data.recipe.length == 0)
-        console.log("no results in database");
+      // check if ID is not correct
+      if (recipeResponse.data.recipe.length == 0)
+        console.log("no matches in database");
       else {
     
-        let modalContentMarkup = `<img src="${response.data.recipe.image_url}">`;
+        let modalContentMarkup = `<img src="${recipeResponse.data.recipe.image_url}">`;
         //console.log(modalContent, modalContentMarkup)
         elements.modalContent.insertAdjacentHTML('beforeend', modalContentMarkup);
     
