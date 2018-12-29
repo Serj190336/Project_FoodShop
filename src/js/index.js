@@ -1,7 +1,7 @@
 import Search from './models/search' //import class Search
 import * as searchView from './views/searchView'
 import { elements, renderLoader, clearLoader } from './views/base'
-import * as modal from './models/modal'
+import * as modalView from './views/modalView'
 
 /** Global state of the app
  * - Current recipe object
@@ -30,7 +30,7 @@ const controlSearch = async () => { // new async function for Search input
         searchView.renderResults(state.search.result); // display search results on page using forEach
 
         // Prepare modal on click
-        modal.createModal();
+        modalView.createModal();
 
 
     }

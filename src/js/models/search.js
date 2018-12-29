@@ -1,5 +1,6 @@
 import axios from 'axios'; // import 'axious' from JSON, used instead of fetch for older browsers
 import { key } from '../config';
+
 export default class Search {
     constructor(query) {
         this.query = query;
