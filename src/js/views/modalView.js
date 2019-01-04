@@ -1,5 +1,7 @@
 import Modal from '../models/modal'
-import { elements } from '../views/base'
+import {
+  elements
+} from '../views/base'
 
 
 
@@ -10,7 +12,7 @@ export const createModal = () => {
   // add EventListener to every created link
   const resultsLink = document.querySelectorAll('.results__link');
   resultsLink.forEach(el => {
-    el.addEventListener('click', (e) => {
+    el.addEventListener('click', async (e) => {
 
       // 1) display (open) modal window
       elements.modalBlock.style.display = "block";
@@ -36,14 +38,14 @@ export const createModal = () => {
 
       //
       // Modal class and ID of clicked recipe
-      let modalState = {},
-      datasetRecipeId = e.currentTarget.dataset.recipeid;
-      modalState = new Modal(datasetRecipeId);
-      // async send ID to api and get recipe info object
-      modalState.recipeDetails();
-      elements.modalContent.innerHTML = `<span class="closemodal">&times;</span>
-      <p>Some text in the Modal..</p>`;
-
+        let modalState = {},
+        datasetRecipeId = e.currentTarget.dataset.recipeid;
+        modalState = new Modal(datasetRecipeId);
+        // async send ID to api and get recipe info object
+        await modalState.recipeDetails();
+        console.log(modalState.image);
+        // elements.modalContent.innerHTML = `<span class="closemodal">&times;</span>
+        // <p>Some text in the Modal..</p>`;
     })
   })
 }

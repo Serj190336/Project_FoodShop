@@ -1,42 +1,95 @@
+* {
+  box-sizing: border-box
+}
+
 .loader {
-    margin: 5rem auto;
-    text-align: center;
+  margin: 5rem auto;
+  text-align: center;
+}
+
+
+.results__list>li {
+  list-style: none;
+  margin: 10px;
+  min-width: 350px;
+  float: left;
+  clear: both;
+  border-bottom: 4px solid #2eb9ce;
+}
+
+.results__list>li>a {
+  float: left;
+}
+
+.results__list>li>a>.results__img {
+  min-width: 200px;
+  float: left;
+}
+
+.results__list>li>a>.results__img>img {
+  float: left;
+  max-width: 200px;
+  max-height: 133px;
+}
+
+.results__list>li>a>.results__data {
+  float: left;
+  max-width: 150px;
 }
 
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  }
-  
-  /* Modal Content */
-  .modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-  }
-  
-  /* The Close Button */
-  .closemodal {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .closemodal:hover,
-  .closemodal:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-  }
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.closemodal {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.closemodal:hover,
+.closemodal:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* pagination */
+.results__pages {
+  clear: both;
+}
+
+.search__icon {
+  max-width: 20px;
+  max-height: 20px;
+}
