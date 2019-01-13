@@ -11,11 +11,11 @@ import { elements } from '../views/base'
 
     async recipeDetails() {
       try {
-        const recipeResponse = await axios(`http://food2fork.com/api/get?key=${key}&rId=${this.id}`);
+        const recipeResponse = await axios(`https://cors-anywhere.herokuapp.com/http://food2fork.com/api/get?key=${key}&rId=${this.id}`);
         this.idCheck = recipeResponse;
-
         this.title = recipeResponse.data.recipe.title;
         this.image = recipeResponse.data.recipe.image_url;
+        this.ingredients = recipeResponse.data.recipe.ingredients;
         this.orderID = recipeResponse.data.recipe.recipe_id;
 
       } catch (error) {

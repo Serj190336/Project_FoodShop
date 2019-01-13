@@ -1,11 +1,12 @@
 import Modal from '../models/modal'
 import {
-  elements
+  elements,
+  renderLoader,
+  clearLoader
 } from '../views/base'
 
-
-
-// Prepare modal
+let modalID = {};
+// Create modal
 export const createModal = () => {
   // add EventListener to every created link
   const resultsLink = document.querySelectorAll('.results__link');
@@ -16,46 +17,59 @@ export const createModal = () => {
       elements.modalBlock.style.display = "block";
 
       // 2) Create <span> x close button and text
-      elements.modalContent.innerHTML = `<span class="closemodal">&times;</span>
-      <p>Some text in the Modal..</p>`
+      elements.modalContent.innerHTML = `<span class="closemodal">&times;</span>`;
 
       // 3) onlick functions to close modal window
       closeModalWindow();
 
-      // 4) 
+      // 4) render spinner
+      renderLoader(elements.modalContent);
 
-      // Modal class and ID of clicked recipe
-      let modalState = {},
-        datasetRecipeId = e.currentTarget.dataset.recipeid;
-      modalState = new Modal(datasetRecipeId);
-      // async send ID to api and get recipe info object
-      await modalState.recipeDetails();
-      console.log(modalState.title);
-      console.log(modalState.image);
-      console.log(modalState.orderID);
-      // elements.modalContent.innerHTML = `<span class="closemodal">&times;</span>
-      // <p>Some text in the Modal..</p>`;
+      // 5) Modal class and ID of clicked recipe
+      modalID = new Modal(e.currentTarget.dataset.recipeid);
 
+      // 6) send ID to API and receive recipe properties 
+      await modalID.recipeDetails();
 
+      // 7) removing loader spinner
+      clearLoader();
 
-      // elements.modalContent.innerHTML = `<span class="closemodal">&times;</span>
-      // <p>Some text in the Modal..</p>
-      // <p>${modalState.image}</p>`;
+      // 8) render results
 
-
-
+      const modalCont = `
+      <div>
+        <div>
+          <h2>${modalID.title}</h2>
+          <img src="${modalID.image}" alt="${modalID.title}">
+        </div>
+        <div>
+          <ul class='ul-ingredients'>
+            <div>Ingredietns:</div>
+          </ul>
+          <p>Order Code: ${modalID.orderID}</p>
+        </div>
+      </div>
+      `;
+      elements.modalContent.insertAdjacentHTML('beforeend', modalCont);
+      let ul = document.querySelector('.ul-ingredients')
+      modalID.ingredients.forEach(function (item) {
+        let li = document.createElement('li');
+        ul.appendChild(li);
+        li.innerHTML += item;
+      });
 
     })
   })
 }
 
 
+// 3) onlick functions to close modal window
 // Close modal and Clear results modal
 function closeModalWindow() {
   // Get the <span> element that closes the modal
   // Close modal when the user clicks on <span> (x)
   let closeModal = document.querySelector('.closemodal');
-  console.log(closeModal);
+
   closeModal.onclick = function () {
     // hide modal window
     console.log(closeModal);
@@ -77,3 +91,5 @@ function closeModalWindow() {
   }
   console.log('from modaljs')
 }
+
+
