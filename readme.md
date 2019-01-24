@@ -1,7 +1,7 @@
 # RECIPE/MENU PROJECT
 Still in development
 
-## INFO
+### INFO
 Project allows to use 50 API requests per day! To use more please contact me.
 Used cors proxy (https://cors-anywhere.herokuapp.com/) to work correctly with API.
 
