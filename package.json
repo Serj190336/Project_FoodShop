@@ -8,7 +8,7 @@
     "build": "webpack --mode production",
     "start": "webpack-dev-server --mode development --open"
   },
-  "author": "Serj Yusha",
+  "author": "Sergey Yusha",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.26.3",

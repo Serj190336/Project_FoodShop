@@ -2,19 +2,49 @@
   box-sizing: border-box
 }
 
+.container {
+  max-width: 1280px;
+  min-width: 1280px;
+  margin: 0 auto;
+}
+
+/* Search input */
+.search__field {
+  font-size: 20px;
+  padding: 2px;
+  margin: 5px 0 5px 5px;
+  width: 300px;
+}
+
+.search__btn {
+  font-size: 20px;
+  padding: 2px;
+}
+
+/* loader spinner */
 .loader {
   margin: 5rem auto;
   text-align: center;
 }
 
+/* recipe list */
+.results {
+  clear: both;
+  border: #000 solid 1px;
+}
+
+.results__list {
+  padding: 0;
+  list-style-type: none;
+  text-align: center;
+}
 
 .results__list>li {
   list-style: none;
   margin: 10px;
   min-width: 350px;
-  float: left;
-  clear: both;
-  border-bottom: 4px solid #2eb9ce;
+  display: inline-block;
+  border-bottom: 2px solid #2eb9ce;
 }
 
 .results__list>li>a {
@@ -37,6 +67,7 @@
   max-width: 150px;
 }
 
+/* MODAL WINDOW */
 .modal {
   display: none;
   /* Hidden by default */
@@ -87,9 +118,24 @@
 /* pagination */
 .results__pages {
   clear: both;
+  text-align: center;
 }
 
 .search__icon {
   max-width: 20px;
   max-height: 20px;
+}
+
+
+
+/* LEFT MENU */
+.left-menu {
+  clear: both;
+  width: 100%;
+}
+
+.menu-btn {
+  margin: 5px;
+  float: left;
+  font-size: 20px;
 }

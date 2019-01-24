@@ -35,7 +35,6 @@ export const createModal = () => {
       clearLoader();
 
       // 8) render results
-
       const modalCont = `
       <div>
         <div>
@@ -50,6 +49,7 @@ export const createModal = () => {
         </div>
       </div>
       `;
+      // loop through ingredients
       elements.modalContent.insertAdjacentHTML('beforeend', modalCont);
       let ul = document.querySelector('.ul-ingredients')
       modalID.ingredients.forEach(function (item) {

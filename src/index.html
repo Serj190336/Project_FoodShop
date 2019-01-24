@@ -13,30 +13,40 @@
 <body>
 
     <div class="container">
-        <header class="header">
-            <form class="search">
-                <input type="text" class="search__field" placeholder="Search over 1,000,000 recipes...">
-                <button class="btn search__btn">
-                    <span>Search</span>
-                </button>
-            </form>
-        </header>
+        <div class="row">
+            <header class="header">
+                <form class="search">
+                    <input type="text" class="search__field" placeholder="Search over 1,000,000 recipes...">
+                    <button class="btn search__btn">
+                        <span>Search</span>
+                    </button>
+                </form>
+            </header>
+        </div>
 
-        <div class="results">
-            <button id="myBtn">Open Modal</button>
-            <div id="myModal" class="modal">
-                <div class="modal-content">
-                    <!-- <span class="closemodal">&times;</span>
-                    <p>Some text in the Modal..</p> -->
-                </div>
+        <div class="row">
+            <div class="left-menu">
+                <button class="menu-btn" data-query="Pizza" id="123">Pizza</button>
+                <button class="menu-btn" data-query="Pasta">Pasta</button>
+                <button class="menu-btn" data-query="Sushi">Sushi</button>
             </div>
-            <ul class="results__list">
-            </ul>
-            <div class="results__pages">
+
+
+
+            <div class="results">
+                <div id="myModal" class="modal">
+                    <div class="modal-content">
+                        <!-- <span class="closemodal">&times;</span>
+                    <p>Some text in the Modal..</p> -->
+                    </div>
+                </div>
+                <ul class="results__list">
+                </ul>
+                <div class="results__pages">
+                </div>
             </div>
         </div>
     </div>
-
 
 
 </body>

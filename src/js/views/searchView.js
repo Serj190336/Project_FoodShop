@@ -81,7 +81,7 @@ const renderButtons = (page, numResults, resPerPage) => {
 };
 
 // Show results per pagination page
-export const renderResults = (recipes, page = 1, resPerPage = 10) => {
+export const renderResults = (recipes, page = 1, resPerPage = 9) => {
     // render results of currente page
     const start = (page - 1) * resPerPage;
     const end = page * resPerPage;

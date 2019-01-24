@@ -10,9 +10,11 @@ import * as modalView from './views/modalView'
  */
 const state = {};
 
-const controlSearch = async () => { // new async function for Search input
-    // 1) Get query from view 
-    const query = searchView.getInput();
+const controlSearch = async (query) => { // new async function for Search input
+    // 1) Get query from view
+    if (query === undefined) {
+    query = searchView.getInput();
+    }
 
     if(query) {
         // 2) New search object and add to state
@@ -35,16 +37,34 @@ const controlSearch = async () => { // new async function for Search input
 
     }
 }
+
+// EventListener on search form
 elements.searchForm.addEventListener('submit', e => {
     e.preventDefault();
     controlSearch();
 
 })
+let query1 = "";
+// EventListener on Menu Buttons
+elements.leftMenuBtns.addEventListener("click", function(e) {
+    if (e.target !== e.currentTarget) { // if clicked element is not parent element
+        query1 = e.target.dataset.query;
+        console.log(query1);
+        controlSearch(query1)
+    }
+    e.stopPropagation();
+});
+//
 
-// ***
-// const searchPizza = new Search('pizza'); //отдельный класс поиска пиццы
-// он сейчас в state 
-// console.log(searchPizza);
-//searchPizza.getResults();
-// ***
+// event listener pagination
+elements.searchResPages.addEventListener('click', e => {
+    let btn = e.target.closest('.btn-inline');
+    if (btn) {
+        const goToPage = parseInt(btn.dataset.goto, 9);
+        searchView.clearResults();
+        searchView.renderResults(state.search.result, goToPage);
+    }
+});
+
+
 
